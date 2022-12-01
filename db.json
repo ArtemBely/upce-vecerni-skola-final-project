@@ -1,0 +1,37 @@
+{
+  "shoppingItems": [
+    {
+      "content": "Milk",
+      "state": "completed",
+      "count": 1,
+      "id": 3
+    },
+    {
+      "content": "Bread",
+      "state": "completed",
+      "count": 3,
+      "id": 4
+    },
+    {
+      "content": "Soap",
+      "state": "active",
+      "count": 1,
+      "id": 5
+    },
+    {
+      "content": "Meat",
+      "state": "active",
+      "count": 10,
+      "id": 6
+    },
+    {
+      "content": "Spagetti",
+      "state": "active",
+      "count": 7,
+      "id": 7
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
