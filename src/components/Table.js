@@ -19,7 +19,6 @@ export const Table = (props) => {
   const editOne = () => {
     if(typeof window != "undefined") {
        window.location.reload();
-       //alert("Item will be changed")
     }
   }
 
@@ -30,10 +29,10 @@ export const Table = (props) => {
             <p className='each_info_p'>{props.data.content}: {props.data.count}</p>
             <button onClick={showDialog} style={{ marginTop: '20px' }} className='com_change'>Change Info</button>
             <button className='com_change' onClick={() => {
-              Calls.updateShoppingItem(props.data.id, { content: props.data.content, state: props.data.state == 'active' ? 'completed' : 'active', count: props.data.count })
+              Calls.updateShoppingItem(props.data.id, { content: props.data.content, state: props.data.state == 'ACTIVE' ? 'COMPLETED' : 'ACTIVE', count: props.data.count })
               setTimeout(() => {editOne()}, 1000)
             }}
-              style={{ marginTop: '20px' }}>{props.data.state == 'active' ? 'completed' : 'active'}</button>
+              style={{ marginTop: '20px' }}>{props.data.state == 'ACTIVE' ? 'COMPLETED' : 'ACTIVE'}</button>
               <div style={{ display: showDisplay ? 'grid' : ' none' }}>
                   <button onClick={closeDialog} className='cls_btn'>Close</button>
                   <input type='text' placeholder={props.data.content} className='com_inp' onChange={(e) => { setTitle(e.target.value) }}/>

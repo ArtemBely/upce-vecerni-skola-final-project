@@ -1,12 +1,6 @@
 {
   "shoppingItems": [
     {
-      "content": "Milk",
-      "state": "completed",
-      "count": 1,
-      "id": 3
-    },
-    {
       "content": "Bread",
       "state": "completed",
       "count": 3,
@@ -14,7 +8,7 @@
     },
     {
       "content": "Soap",
-      "state": "active",
+      "state": "completed",
       "count": 1,
       "id": 5
     },
@@ -29,6 +23,12 @@
       "state": "active",
       "count": 7,
       "id": 7
+    },
+    {
+      "content": "banana",
+      "state": "active",
+      "count": 5,
+      "id": 8
     }
   ],
   "profile": {

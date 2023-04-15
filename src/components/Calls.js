@@ -24,12 +24,12 @@ let Calls = {
 
   getUri: function(useCase) {
     return (
-        "http://localhost:3004/" + useCase
+        "http://localhost:8080/" + useCase
     );
   },
 
   async getShoppingListAll(dtoIn) {
-    let commandUri = this.getUri("shoppingItems");
+    let commandUri = this.getUri("product/v1/all"); //shoppingItems
     return await Calls.call("get", commandUri, dtoIn);
   },
 
@@ -49,24 +49,24 @@ let Calls = {
   },
 
   async createShoppingItem(dtoIn) {
-    let commandUri = this.getUri("shoppingItems");
+    let commandUri = this.getUri("product/v1/insert");
     return await Calls.call("post", commandUri, dtoIn);
   },
 
   async getShoppingItem(id) {
-    let commandUri = this.getUri(`shoppingItems/${id}`);
+    let commandUri = this.getUri(`product/v1/get?id=${id}`);
     return await Calls.call("get", commandUri);
   },
 
   async deleteShoppingItem(id) {
-    let commandUri = this.getUri(`shoppingItems/${id}`);
+    let commandUri = this.getUri(`product/v1/delete?id=${id}`);
     return await Calls.call("delete", commandUri);
   },
 
   async updateShoppingItem(id, dtoIn) {
     const loadedItem = await this.getShoppingItem(id);
     const newItem = {...loadedItem, ...dtoIn}
-    let commandUri = this.getUri(`shoppingItems/${id}`);
+    let commandUri = this.getUri(`product/v1/change?id=${id}`);
     return await Calls.call("put", commandUri, newItem);
   }
 };

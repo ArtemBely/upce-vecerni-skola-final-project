@@ -5,6 +5,7 @@ import search from '../bx_search.svg';
 
 export const Main = () => {
 
+  const DEFAULT_QUANTITY = 1;
   const [newValue, setNewValue] = useState('');
   const [filterItem, setFilterItem] = useState('');
   const [data, setData] = useState([]);
@@ -21,10 +22,11 @@ export const Main = () => {
   }, [])
 
   const addItem = async() => {
-      Calls.createShoppingItem({ content: newValue, state: "active", count: 1,})
+      Calls.createShoppingItem({ "content": newValue, "state": "ACTIVE", "count": DEFAULT_QUANTITY})
       .then(fetchData())
       .then(res => res.json())
       .catch(err => console.log(err))
+      if(typeof window != "undefined")  window.location.reload();
   }
 
   const getOnlyCompleted = () => {
