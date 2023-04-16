@@ -34,12 +34,12 @@ let Calls = {
   },
 
   async getShoppingListOnlyActive(dtoIn) {
-    let commandUri = this.getUri("shoppingItems?state=active");
+    let commandUri = this.getUri("product/v1/getItems?state=ACTIVE");
     return await Calls.call("get", commandUri, dtoIn);
   },
 
   async getShoppingListOnlyCompleted(dtoIn) {
-    let commandUri = this.getUri("shoppingItems?state=completed");
+    let commandUri = this.getUri("product/v1/getItems?state=COMPLETED");
     return await Calls.call("get", commandUri, dtoIn);
   },
 
@@ -61,6 +61,11 @@ let Calls = {
   async deleteShoppingItem(id) {
     let commandUri = this.getUri(`product/v1/delete?id=${id}`);
     return await Calls.call("delete", commandUri);
+  },
+
+  async getFilteredItem(content) {
+    let commandUri = this.getUri(`product/v1/get/byname?content=${content}`);
+    return await Calls.call("get", commandUri);
   },
 
   async updateShoppingItem(id, dtoIn) {

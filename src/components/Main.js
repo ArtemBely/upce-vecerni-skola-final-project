@@ -43,12 +43,18 @@ export const Main = () => {
     .catch(err => console.log(err))
   }
 
-  const filtrOfItems = () => {
-    let arr = data.filter((item) => {
-      return item.content.toUpperCase().indexOf(aimItem.toUpperCase()) !== -1;
-    });
-    setData(arr);
-  }
+      const filtrOfItems = () => {
+        let arr = data.filter((item) => {
+          return item.content.toUpperCase().indexOf(aimItem.toUpperCase()) !== -1;
+        });
+        setData(arr);
+      }
+    const filtrByOne = () => {
+    Calls.getFilteredItem(aimItem)
+        .then((res) => setData(res))
+        .then(res => res.json())
+        .catch(err => console.log(err))
+    }
 
   const sortByMax = () => {
     let arr = data.sort((a, b) => { return b.count - a.count });
@@ -80,7 +86,7 @@ export const Main = () => {
         </div>
         <div className='wrap_search'>
             <input type='text' className='inp2' onChange={(e) => { setAimItem(e.target.value);} } placeholder='Find your stuff' />
-            <img src={search} id='search_loop' onClick={filtrOfItems}/>
+            <img src={search} id='search_loop' onClick={filtrByOne}/>
         </div>
         <div onClick={getOnlyCompleted} className='eachFiltr'>Get only completed</div>
         <div onClick={getOnlyActive} className='eachFiltr'>Get only active</div>
